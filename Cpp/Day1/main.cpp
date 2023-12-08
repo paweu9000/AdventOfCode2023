@@ -1,7 +1,8 @@
 #include <iostream>
-#include <string>
 #include <fstream>
+#include <string>
 #include <vector>
+using namespace std;
 
 int get_nums(std::string text)
 {
