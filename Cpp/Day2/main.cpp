@@ -17,6 +17,10 @@ struct Game {
         if (red <= 12 && green <= 13 && blue <= 14) {return id;}
         else return 0;
     }
+
+    int powers() {
+        return red * green * blue;
+    }
 };
 
 std::vector<std::string> split_game(std::string& line) {
@@ -73,6 +77,7 @@ int main() {
     file.open("input.txt");
     std::string line;
     int score = 0;
+    int powers = 0;
     if (file.is_open())
     {
         while (std::getline(file, line))
@@ -84,9 +89,11 @@ int main() {
                 parse_scores(split_g[i], &game);
             }
             score += game.is_valid();
+            powers += game.powers();
         }
         file.close();
     }
     std::cout << score << std::endl;
+    std::cout << powers << std::endl;
     return 0;
 }
